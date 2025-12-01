@@ -3,7 +3,7 @@
 Here is a complete explanation of how I predicted total student enrollment.
 <br>It includes:
 
-* 📌 [Project background](#project-background)
+* [Project background](#project-background)
 * 📊 [Dataset and features](#dataset-and-features)
   * 🧹 [Data Preparation](#data-preparation)
   * 🏗️ [Feature Engineering](#feature-engineering)
@@ -13,7 +13,7 @@ Here is a complete explanation of how I predicted total student enrollment.
 * 📈 [Impact on the academic institution](#impact-on-the-academic-institution)
 
 
-## 📌 Project background
+## Project background
 ### 🎓 Context & Business Problem
 
 The institution runs academic programs both online and offline across a few campuses. One of the biggest operational challenges was:
