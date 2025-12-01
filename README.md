@@ -26,47 +26,39 @@ They used to overestimate or underestimate demand, leading to:
 So the management wanted a predictive enrollment model with high accuracy.
 
 
-### Dataset and features (Variables & Structure)
+### Dataset and features
 
 I collected and cleaned historical enrollment and operational data over several terms/semesters.
 
-Key features in the dataset included:
-Student & Application Data
+***Key features in the dataset included:***
 
-num_inquiries – Number of students who enquired
+***Student & Application Data***
 
-num_applications – Total applications received
+* num_inquiries – Number of students who enquired
+* num_applications – Total applications received
+* conversion_rate – Application → Enrollment %
+* program – Program type (MBA, Data Science, Coding, etc.)
+* mode_of_learning – Online / Offline
+* location – For offline programs (Mumbai, Bangalore, Delhi, etc.)
 
-conversion_rate – Application → Enrollment %
+***Course & Operational Data***
 
-program – Program type (MBA, Data Science, Coding, etc.)
+* tuition_fees – Fee structure
+* scholarship_offers – Discounts offered
+* batch_start_date – Month/season factor
+* class_capacity – Seats available
+* marketing_spend – Campaign investment
 
-mode_of_learning – Online / Offline
+***Engagement Data***
 
-location – For offline programs (Mumbai, Bangalore, Delhi, etc.)
+* demo_sessions_attended
+* followup_calls
+* time_to_enroll (days between application & payment)
 
-Course & Operational Data
+***Target Variable***
 
-tuition_fees – Fee structure
+* total_enrollment (number of students who finally enrolled)
 
-scholarship_offers – Discounts offered
+The dataset had around ***8–12*** features depending on semester.
 
-batch_start_date – Month/season factor
 
-class_capacity – Seats available
-
-marketing_spend – Campaign investment
-
-Engagement Data
-
-demo_sessions_attended
-
-followup_calls
-
-time_to_enroll (days between application & payment)
-
-Target Variable
-
-total_enrollment (number of students who finally enrolled)
-
-The dataset had around 8–12 features depending on semester.
