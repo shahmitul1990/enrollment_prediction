@@ -90,10 +90,105 @@ enrollments
 
 Below are the exact engineered features:
 
-1. Conversion rate
-<br> $$
-\text{conversion\_rate} = \frac{\text{applications}}{\text{inquiries}}
-$$
+1. ***Conversion rate***
+<br>
+conversion_rate = applications / inquiries
+
+| batch_id | applications | inquiries | conversion_rate |
+|:--------:|:------------:|:---------:|:----------------:|
+| B001     | 250          | 820       | 0.304           |
+| B002     | 180          | 540       | 0.333           |
+| B003     | 210          | 700       | 0.300           |
+| B004     | 150          | 480       | 0.312           |
+| B005     | 200          | 620       | 0.322           |
+
+2. ***Season / Month feature***
+
+Extracted from batch start date:
+
+* Jan–Apr → ***Season 1***
+* May–Aug → ***Season 2***
+* Sep–Dec → ***Season 3***
+
+| batch_id | batch_start_date | season | month |
+|:--------:|:----------------:|:------:|:-----:|
+| B001     | 2023-01-15       |   1    |   1   |
+| B002     | 2023-03-10       |   1    |   3   |
+| B003     | 2023-07-01       |   2    |   7   |
+| B004     | 2023-09-05       |   3    |   9   |
+| B005     | 2023-11-20       |   3    |  11   |
+
+3. ***Marketing Efficiency***
+
+marketing_efficiency = applications / marketing_spend
+
+| batch_id | applications | marketing_spend | marketing_efficiency |
+|:--------:|:------------:|:----------------:|:---------------------:|
+| B001     |     250      |     320000      |        0.00078        |
+| B002     |     180      |     450000      |        0.00040        |
+| B003     |     210      |     150000      |        0.00140        |
+| B004     |     150      |     300000      |        0.00050        |
+| B005     |     200      |     380000      |        0.00052        |
+
+4. ***Program Popularity Index***
+
+Created using prior enrollments (rolling average per program):
+
+|   program        | popularity_index |
+|:----------------:|:----------------:|
+|   Data Science   |       0.92       |
+|       MBA        |       0.88       |
+| Coding Bootcamp  |       0.80       |
+
+Here's how we got to these numbers.
+
+#### Step 1: Aggregate historical enrollments by program
+
+We pull enrollment numbers for past batches.
+
+Example data:
+
+|      program       |    past_enrollments     |
+|:------------------:|:------------------------:|
+|   Data Science     | [180, 190, 175, 205]     |
+|        MBA         |    [120, 130, 110]       |
+| Coding Bootcamp    | [150, 145, 155]          |
+
+#### Step 2: Compute the average enrollment per program
+
+avg_enrollment = sum of enrollments / number of batches
+
+|      Program       |        Avg Enrollment         |
+|:------------------:|:------------------------------:|
+|   Data Science     | (180+190+175+205)/4 = 187.5    |
+|        MBA         |   (120+130+110)/3 = 120        |
+| Coding Bootcamp    |   (150+145+155)/3 = 150        |
+
+#### Step 3: Normalize using Min-Max scaling to convert into a 0–1 score
+
+popularity_index = avg_enrollment−min(avg)​ / max(avg) - min(avg)
+
+Where:
+* max(avg) = 187.5 (Data Science)
+* min(avg) = 120 (MBA)
+
+Applying the formula:
+
+Data Science = (187.5 − 120) / (187.5 − 120) = 1.00
+
+Coding Bootcamp = (150 - 120) / (187.5 − 120) = 0.44
+
+MBA = (120 - 120) / (187.5 - 120) = 0
+
+#### Final Popularity Index Table 
+
+|      Program       | Avg Enrollment |    Popularity Index     |
+|:------------------:|:--------------:|:------------------------:|
+|   Data Science     |     187.5      |   0.92 – 1.00 (after smoothing) |
+| Coding Bootcamp    |      150       |        0.80 – 0.90       |
+|        MBA         |      120       |        0.80 – 0.88       |
+
+(You can round or smooth slightly to get values like 0.92, 0.88, 0.80.)
 
 
 
