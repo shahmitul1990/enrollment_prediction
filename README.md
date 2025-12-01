@@ -289,7 +289,7 @@ The accuracy increase came from:
 * After these improvements, the final model consistently achieved:
 * ***~95% accuracy (R² score) on unseen test data***
 
-## Impact on the Institution
+## Impact on the academic institution
 
 * Leadership could now forecast student enrollment 1–3 months in advance
 * Faculty hiring became more precise
