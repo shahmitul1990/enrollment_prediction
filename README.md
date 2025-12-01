@@ -88,7 +88,7 @@ I’m showing:
 enrollments
 <br>This is what out model predicted.
 
-##### Data Preparation
+### Data Preparation
 
 Before modeling, I performed:
 
@@ -98,7 +98,7 @@ Before modeling, I performed:
 * Feature scaling (for linear models)
 * Train-test split (80/20)
 
-##### Feature Engineering
+### Feature Engineering
 
 Below are the exact engineered features:
 
