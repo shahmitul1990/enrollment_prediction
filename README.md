@@ -28,7 +28,7 @@ They used to overestimate or underestimate demand, leading to:
 So the management wanted a predictive enrollment model with high accuracy.
 
 
-#### Dataset and features
+## Dataset and features
 
 I collected and cleaned historical enrollment and operational data over several terms/semesters.
 
