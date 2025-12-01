@@ -230,6 +230,75 @@ Here’s how the dataset finally looked after merging all features:
 |   B005   |       MBA       |    620    |     200      |    85000    |     380000      |      0.322      |   3    |       0.00052        |       0.88       |      1      |      0       |      0     |       0       |      1     |     160     |
 
 
+## Models tried
+
+To ensure we find the best-performing model, I experimented with multiple algorithms:
+
+1. Linear Regression
+
+* Baseline model
+* Good interpretability
+* But underfit due to non-linear patterns
+* Accuracy ~ 82%
+
+2. Decision Tree Regressor
+
+* Captured non-linearity
+* Overfitted slightly
+* Accuracy ~ 88%
+
+3. Random Forest Regressor
+
+* Handled feature interactions well
+* Reduced overfitting
+* Accuracy improved to ~ 92%
+
+4. Adaptive Boosting (AdaBoost)
+
+* Gave the best fit
+* Accuracy reached 95%
+
+## Final model selection
+
+***Adaptive Boosting***
+
+* Best performance on validation set
+* Best handling of categorical, numeric, and interaction-heavy data
+* Highest accuracy
+* Most reliable for forecasting new semester enrollments
+
+## How accuracy reached 95%
+
+The accuracy increase came from:
+
+***Feature Engineering***
+
+* Creating seasonal features (summer/winter intake)
+* Creating a marketing efficiency feature: marketing_spend_per_application
+* Computing program popularity from past semesters
+* Converting program mode (online/offline) into separate dummy variables
+
+***Hyperparameter Tuning of AdaBoost***
+
+* n_estimators, learning_rate and max_depth
+* Used Grid Search + Cross Validation
+
+***Cross-validation***
+
+* Ensured the model generalized well and didn’t overfit.
+* After these improvements, the final model consistently achieved:
+* ***~95% accuracy (R² score) on unseen test data***
+
+## Impact on the Institution
+
+* Leadership could now forecast student enrollment 1–3 months in advance
+* Faculty hiring became more precise
+* Classrooms and labs could be allocated optimally
+* Saved operational costs by avoiding last-minute hiring
+* Improved learning experience due to better student–teacher ratio
+
+It became one of the key tools for operational planning every term.
+
 
 
 
