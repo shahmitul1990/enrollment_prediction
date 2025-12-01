@@ -190,5 +190,37 @@ MBA = (120 - 120) / (187.5 - 120) = 0
 
 (You can round or smooth slightly to get values like 0.92, 0.88, 0.80.)
 
+5. ***Mode Encoding (One-Hot Encoding)***
+
+|  Mode   | Mode Online | Mode Offline |
+|:-------:|:-----------:|:------------:|
+| Online  |      1      |      0       |
+| Offline |      0      |      1       |
+
+6. ***Location Encoding (One-Hot)***
+
+|   Location    | Loc Mumbai | Loc Bangalore | Loc Online |
+|:-------------:|:----------:|:-------------:|:----------:|
+|    Mumbai     |      1     |       0       |      0     |
+|   Bangalore   |      0     |       1       |      0     |
+| NA (Online)   |      0     |       0       |      1     |
+
+***Final Modeling Dataset (Combined)***
+
+Here’s how the dataset finally looked after merging all features:
+
+| batch_id |     program     | inquiries | applications | tuition_fee | marketing_spend | conversion_rate | season | marketing_efficiency | popularity_index | mode_online | mode_offline | loc_mumbai | loc_bangalore | loc_online | enrollments |
+|:--------:|:---------------:|:---------:|:------------:|:-----------:|:---------------:|:---------------:|:------:|:--------------------:|:----------------:|:-----------:|:------------:|:----------:|:-------------:|:----------:|:-----------:|
+|   B001   |  Data Science   |    820    |     250      |    65000    |     320000      |      0.304      |   1    |       0.00078        |       0.92       |      1      |      0       |      0     |       0       |      1     |     180     |
+|   B002   |       MBA       |    540    |     180      |    90000    |     450000      |      0.333      |   1    |       0.00040        |       0.88       |      0      |      1       |      1     |       0       |      0     |     120     |
+|   B003   | Coding Bootcamp |    700    |     210      |    40000    |     150000      |      0.300      |   2    |       0.00140        |       0.80       |      1      |      0       |      0     |       0       |      1     |     150     |
+|   B004   |  Data Science   |    480    |     150      |    68000    |     300000      |      0.312      |   3    |       0.00050        |       0.92       |      0      |      1       |      0     |       1       |      0     |     110     |
+|   B005   |       MBA       |    620    |     200      |    85000    |     380000      |      0.322      |   3    |       0.00052        |       0.88       |      1      |      0       |      0     |       0       |      1     |     160     |
+
+
+
+
+
+
 
 
