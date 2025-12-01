@@ -6,14 +6,15 @@ Here is a complete explanation of how I predicted total student enrollment.
 * [Project background](#project-background)
 * [Dataset and features](#dataset-and-features)
   * [Data Preparation](#data-preparation)
+  * [Feature Engineering](#feature-engineering)
 * [Models tried](#models-tried)
 * [Final model selection](final-model-selection)
 * [How accuracy reached 95%](how-accuracy-reached-95%)
 * [Impact on the academic institution](impact-on-the-academic-institution)
 
 
-### Project background
-##### Context & Business Problem
+## Project background
+### Context & Business Problem
 
 The institution runs academic programs both online and offline across a few campuses. One of the biggest operational challenges was:
 <br> **Predicting how many students will enroll next term so that faculty hiring, classroom allocation, and study material planning could be optimized.**
@@ -27,7 +28,7 @@ They used to overestimate or underestimate demand, leading to:
 So the management wanted a predictive enrollment model with high accuracy.
 
 
-### Dataset and features
+#### Dataset and features
 
 I collected and cleaned historical enrollment and operational data over several terms/semesters.
 
@@ -71,7 +72,7 @@ I’m showing:
 * ***Feature-engineered variables you created***
 * How each feature was derived
 
-#### Sample Dataset (Before Feature Engineering)
+##### Sample Dataset (Before Feature Engineering)
 
 *(5 rows, simplified for demonstration)*
 
@@ -87,21 +88,17 @@ I’m showing:
 enrollments
 <br>This is what out model predicted.
 
-##Data Preparation
+##### Data Preparation
 
 Before modeling, I performed:
 
-Handling missing values
+* Handling missing values
+* Outlier treatment in marketing spend & fees
+* One-hot encoding for categorical variables (program, location, mode)
+* Feature scaling (for linear models)
+* Train-test split (80/20)
 
-Outlier treatment in marketing spend & fees
-
-One-hot encoding for categorical variables (program, location, mode)
-
-Feature scaling (for linear models)
-
-Train-test split (80/20)
-
-### Feature Engineering
+##### Feature Engineering
 
 Below are the exact engineered features:
 
@@ -157,7 +154,7 @@ Created using prior enrollments (rolling average per program):
 
 Here's how we got to these numbers.
 
-#### Step 1: Aggregate historical enrollments by program
+###### Step 1: Aggregate historical enrollments by program
 
 We pull enrollment numbers for past batches.
 
@@ -169,7 +166,7 @@ Example data:
 |        MBA         |    [120, 130, 110]       |
 | Coding Bootcamp    | [150, 145, 155]          |
 
-#### Step 2: Compute the average enrollment per program
+###### Step 2: Compute the average enrollment per program
 
 avg_enrollment = sum of enrollments / number of batches
 
@@ -179,7 +176,7 @@ avg_enrollment = sum of enrollments / number of batches
 |        MBA         |   (120+130+110)/3 = 120        |
 | Coding Bootcamp    |   (150+145+155)/3 = 150        |
 
-#### Step 3: Normalize using Min-Max scaling to convert into a 0–1 score
+###### Step 3: Normalize using Min-Max scaling to convert into a 0–1 score
 
 popularity_index = avg_enrollment−min(avg)​ / max(avg) - min(avg)
 
@@ -195,7 +192,7 @@ Coding Bootcamp = (150 - 120) / (187.5 − 120) = 0.44
 
 MBA = (120 - 120) / (187.5 - 120) = 0
 
-#### Final Popularity Index Table 
+###### Final Popularity Index Table 
 
 |      Program       | Avg Enrollment |    Popularity Index     |
 |:------------------:|:--------------:|:------------------------:|
