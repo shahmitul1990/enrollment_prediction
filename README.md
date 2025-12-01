@@ -94,6 +94,7 @@ Below are the exact engineered features:
 <br>
 conversion_rate = applications / inquiries
 
+
 | batch_id | applications | inquiries | conversion_rate |
 |:--------:|:------------:|:---------:|:----------------:|
 | B001     | 250          | 820       | 0.304           |
