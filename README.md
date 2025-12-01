@@ -91,9 +91,8 @@ enrollments
 Below are the exact engineered features:
 
 1. ***Conversion rate***
-<br>
-conversion_rate = applications / inquiries
 
+conversion_rate = applications / inquiries
 
 | batch_id | applications | inquiries | conversion_rate |
 |:--------:|:------------:|:---------:|:----------------:|
