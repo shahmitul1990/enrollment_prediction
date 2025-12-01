@@ -4,37 +4,37 @@ Here is a complete explanation of how I predicted total student enrollment.
 <br>It includes:
 
 * 📌 [Project background](#project-background)
-* [Dataset and features](#dataset-and-features)
-  * [Data Preparation](#data-preparation)
-  * [Feature Engineering](#feature-engineering)
-* [Models tried](#models-tried)
-* [Final model selection](#final-model-selection)
-* [How accuracy reached 95%](#how-accuracy-reached-95%)
-* [Impact on the academic institution](#impact-on-the-academic-institution)
+* 📊 [Dataset and features](#dataset-and-features)
+  * 🧹 [Data Preparation](#data-preparation)
+  * 🏗️ [Feature Engineering](#feature-engineering)
+* 🤖 [Models tried](#models-tried)
+* 🏆 [Final model selection](#final-model-selection)
+* 🎯 [How accuracy reached 95%](#how-accuracy-reached-95%)
+* 📈 [Impact on the academic institution](#impact-on-the-academic-institution)
 
 
-## Project background
-### Context & Business Problem
+## 📌 Project background
+### 🎓 Context & Business Problem
 
 The institution runs academic programs both online and offline across a few campuses. One of the biggest operational challenges was:
-<br> **Predicting how many students will enroll next term so that faculty hiring, classroom allocation, and study material planning could be optimized.**
+<br> 👉 **Predicting how many students will enroll next term so that faculty hiring, classroom allocation, and study material planning could be optimized.**
 
 They used to overestimate or underestimate demand, leading to:
 
-* Hiring too many or too few faculty
-* Overcrowded or underutilized classrooms
-* Incorrect budgeting
+* 👨‍🏫 Hiring too many or too few faculty
+* 🏫 Overcrowded or underutilized classrooms
+* 💰 Incorrect budgeting
 
 So the management wanted a predictive enrollment model with high accuracy.
 
 
-## Dataset and features
+## 📊 Dataset and features
 
 I collected and cleaned historical enrollment and operational data over several terms/semesters.
 
-***Key features in the dataset included:***
+⭐ ***Key features in the dataset included:***
 
-***Student & Application Data***
+👥 ***Student & Application Data***
 
 * num_inquiries – Number of students who enquired
 * num_applications – Total applications received
@@ -43,7 +43,7 @@ I collected and cleaned historical enrollment and operational data over several 
 * mode_of_learning – Online / Offline
 * location – For offline programs (Mumbai, Bangalore, Delhi, etc.)
 
-***Course & Operational Data***
+🏫 ***Course & Operational Data***
 
 * tuition_fees – Fee structure
 * scholarship_offers – Discounts offered
@@ -51,13 +51,13 @@ I collected and cleaned historical enrollment and operational data over several 
 * class_capacity – Seats available
 * marketing_spend – Campaign investment
 
-***Engagement Data***
+📞 ***Engagement Data***
 
 * demo_sessions_attended
 * followup_calls
 * time_to_enroll (days between application & payment)
 
-***Target Variable***
+🎯 ***Target Variable***
 
 * total_enrollment (number of students who finally enrolled)
 
@@ -72,7 +72,7 @@ I’m showing:
 * ***Feature-engineered variables you created***
 * How each feature was derived
 
-#### Sample Dataset (Before Feature Engineering)
+📁 ***Sample Dataset (Before Feature Engineering)***
 
 *(5 rows, simplified for demonstration)*
 
@@ -88,23 +88,23 @@ I’m showing:
 enrollments
 <br>This is what out model predicted.
 
-### Data Preparation
+### 🧹 Data Preparation
 
 Before modeling, I performed:
 
-* Handling missing values
-* Outlier treatment in marketing spend & fees
-* One-hot encoding for categorical variables (program, location, mode)
-* Feature scaling (for linear models)
-* Train-test split (80/20)
+* 🔧 Handling missing values
+* 📉 Outlier treatment in marketing spend & fees
+* 🔤 One-hot encoding for categorical variables (program, location, mode)
+* 📏 Feature scaling (for linear models)
+* ✂️ Train-test split (80/20)
 
-### Feature Engineering
+### 🏗️ Feature Engineering
 
 Below are the exact engineered features:
 
-1. ***Conversion rate***
+1️⃣ ***Conversion rate***
 
-conversion_rate = applications / inquiries
+📐 conversion_rate = applications / inquiries
 
 | batch_id | applications | inquiries | conversion_rate |
 |:--------:|:------------:|:---------:|:----------------:|
@@ -114,7 +114,7 @@ conversion_rate = applications / inquiries
 | B004     | 150          | 480       | 0.312           |
 | B005     | 200          | 620       | 0.322           |
 
-2. ***Season / Month feature***
+2️⃣ ***Season / Month feature*** 📅
 
 Extracted from batch start date:
 
@@ -130,9 +130,9 @@ Extracted from batch start date:
 | B004     | 2023-09-05       |   3    |   9   |
 | B005     | 2023-11-20       |   3    |  11   |
 
-3. ***Marketing Efficiency***
+3️⃣ ***Marketing Efficiency***
 
-marketing_efficiency = applications / marketing_spend
+📐 marketing_efficiency = applications / marketing_spend
 
 | batch_id | applications | marketing_spend | marketing_efficiency |
 |:--------:|:------------:|:----------------:|:---------------------:|
@@ -142,7 +142,7 @@ marketing_efficiency = applications / marketing_spend
 | B004     |     150      |     300000      |        0.00050        |
 | B005     |     200      |     380000      |        0.00052        |
 
-4. ***Program Popularity Index***
+4️⃣ ***Program Popularity Index*** ⭐
 
 Created using prior enrollments (rolling average per program):
 
@@ -202,14 +202,14 @@ MBA = (120 - 120) / (187.5 - 120) = 0
 
 (You can round or smooth slightly to get values like 0.92, 0.88, 0.80.)
 
-5. ***Mode Encoding (One-Hot Encoding)***
+5️⃣ ***Mode Encoding (One-Hot Encoding)*** 💻🏫
 
 |  Mode   | Mode Online | Mode Offline |
 |:-------:|:-----------:|:------------:|
 | Online  |      1      |      0       |
 | Offline |      0      |      1       |
 
-6. ***Location Encoding (One-Hot)***
+6️⃣ ***Location Encoding (One-Hot)*** 📍
 
 |   Location    | Loc Mumbai | Loc Bangalore | Loc Online |
 |:-------------:|:----------:|:-------------:|:----------:|
@@ -217,7 +217,7 @@ MBA = (120 - 120) / (187.5 - 120) = 0
 |   Bangalore   |      0     |       1       |      0     |
 | NA (Online)   |      0     |       0       |      1     |
 
-***Final Modeling Dataset (Combined)***
+🧾 ***Final Modeling Dataset (Combined)***
 
 Here’s how the dataset finally looked after merging all features:
 
@@ -230,66 +230,66 @@ Here’s how the dataset finally looked after merging all features:
 |   B005   |       MBA       |    620    |     200      |    85000    |     380000      |      0.322      |   3    |       0.00052        |       0.88       |      1      |      0       |      0     |       0       |      1     |     160     |
 
 
-## Models tried
+## 🤖 Models tried
 
 To ensure we find the best-performing model, I experimented with multiple algorithms:
 
-1. Linear Regression
+1️⃣ Linear Regression
 
 * Baseline model
 * Good interpretability
 * But underfit due to non-linear patterns
 * Accuracy ~ 82%
 
-2. Decision Tree Regressor
+2️⃣ Decision Tree Regressor
 
 * Captured non-linearity
 * Overfitted slightly
 * Accuracy ~ 88%
 
-3. Random Forest Regressor
+3️⃣ Random Forest Regressor
 
 * Handled feature interactions well
 * Reduced overfitting
 * Accuracy improved to ~ 92%
 
-4. Adaptive Boosting (AdaBoost)
+4️⃣ Adaptive Boosting (AdaBoost)
 
 * Gave the best fit
-* Accuracy reached 95%
+* Accuracy reached 95% ⚡
 
-## Final model selection
+## 🏆 Final model selection
 
 ***Adaptive Boosting***
 
-* Best performance on validation set
-* Best handling of categorical, numeric, and interaction-heavy data
-* Highest accuracy
-* Most reliable for forecasting new semester enrollments
+✔ * Best performance on validation set
+✔ * Best handling of categorical, numeric, and interaction-heavy data
+✔ * Highest accuracy
+✔ * Most reliable for forecasting new semester enrollments
 
-## How accuracy reached 95%
+## 🎯 How accuracy reached 95%
 
 The accuracy increase came from:
 
-***Feature Engineering***
+🔧 ***Feature Engineering***
 
 * Creating seasonal features (summer/winter intake)
 * Creating a marketing efficiency feature: marketing_spend_per_application
 * Computing program popularity from past semesters
 * Converting program mode (online/offline) into separate dummy variables
 
-***Hyperparameter Tuning of AdaBoost***
+🧪 ***Hyperparameter Tuning of AdaBoost***
 
 * n_estimators, learning_rate and max_depth
 * Used Grid Search + Cross Validation
 
-***Cross-validation***
+🔁 ***Cross-validation***
 
 * Ensured the model generalized well and didn’t overfit.
 * After these improvements, the final model consistently achieved:
 * ***~95% accuracy (R² score) on unseen test data***
 
-## Impact on the academic institution
+## 📈 Impact on the academic institution
 
 * Leadership could now forecast student enrollment 1–3 months in advance
 * Faculty hiring became more precise
