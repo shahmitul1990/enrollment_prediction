@@ -4,13 +4,13 @@ Here is a complete explanation of how I predicted total student enrollment.
 <br>It includes:
 
 * [Project background](#project-background)
-* 📊 [Dataset and features](#dataset-and-features)
-  * 🧹 [Data Preparation](#data-preparation)
-  * 🏗️ [Feature Engineering](#feature-engineering)
-* 🤖 [Models tried](#models-tried)
-* 🏆 [Final model selection](#final-model-selection)
-* 🎯 [How accuracy reached 95%](#how-accuracy-reached-95)
-* 📈 [Impact on the academic institution](#impact-on-the-academic-institution)
+* [Dataset and features](#dataset-and-features)
+  * [Data Preparation](#data-preparation)
+  * [Feature Engineering](#feature-engineering)
+* [Models tried](#models-tried)
+* [Final model selection](#final-model-selection)
+* [How accuracy reached 95%](#how-accuracy-reached-95)
+* [Impact on the academic institution](#impact-on-the-academic-institution)
 
 
 ## Project background
@@ -28,7 +28,7 @@ They used to overestimate or underestimate demand, leading to:
 So the management wanted a predictive enrollment model with high accuracy.
 
 
-## 📊 Dataset and features
+## Dataset and features
 
 I collected and cleaned historical enrollment and operational data over several terms/semesters.
 
@@ -88,7 +88,7 @@ I’m showing:
 enrollments
 <br>This is what out model predicted.
 
-### 🧹 Data Preparation
+### Data Preparation
 
 Before modeling, I performed:
 
@@ -98,7 +98,7 @@ Before modeling, I performed:
 * 📏 Feature scaling (for linear models)
 * ✂️ Train-test split (80/20)
 
-### 🏗️ Feature Engineering
+### Feature Engineering
 
 Below are the exact engineered features:
 
@@ -230,7 +230,7 @@ Here’s how the dataset finally looked after merging all features:
 |   B005   |       MBA       |    620    |     200      |    85000    |     380000      |      0.322      |   3    |       0.00052        |       0.88       |      1      |      0       |      0     |       0       |      1     |     160     |
 
 
-## 🤖 Models tried
+## Models tried
 
 To ensure we find the best-performing model, I experimented with multiple algorithms:
 
@@ -258,7 +258,7 @@ To ensure we find the best-performing model, I experimented with multiple algori
 * Gave the best fit
 * Accuracy reached 95% ⚡
 
-## 🏆 Final model selection
+## Final model selection
 
 ***Adaptive Boosting***
 
@@ -267,7 +267,7 @@ To ensure we find the best-performing model, I experimented with multiple algori
 * Highest accuracy
 * Most reliable for forecasting new semester enrollments
 
-## 🎯 How accuracy reached 95%
+## How accuracy reached 95%
 
 The accuracy increase came from:
 
@@ -289,7 +289,7 @@ The accuracy increase came from:
 * After these improvements, the final model consistently achieved:
 * ***~95% accuracy (R² score) on unseen test data***
 
-## 📈 Impact on the academic institution
+## Impact on the academic institution
 
 * Leadership could now forecast student enrollment 1–3 months in advance
 * Faculty hiring became more precise
