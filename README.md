@@ -86,5 +86,14 @@ I’m showing:
 enrollments
 <br>This is what out model predicted.
 
+### Feature Engineering
+
+Below are the exact engineered features:
+
+1. Conversion rate
+<br> $$
+\text{conversion\_rate} = \frac{\text{applications}}{\text{inquiries}}
+$$
+
 
 
