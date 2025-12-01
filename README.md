@@ -12,4 +12,4 @@ Here is a complete, polished, explanation of how I predicted total student enrol
 
 
 ### Project background
-This is Line 1 description.
+This is Line 1 description. 
