@@ -72,7 +72,7 @@ I’m showing:
 * ***Feature-engineered variables you created***
 * How each feature was derived
 
-##### Sample Dataset (Before Feature Engineering)
+#### Sample Dataset (Before Feature Engineering)
 
 *(5 rows, simplified for demonstration)*
 
@@ -154,7 +154,7 @@ Created using prior enrollments (rolling average per program):
 
 Here's how we got to these numbers.
 
-###### Step 1: Aggregate historical enrollments by program
+#### Step 1: Aggregate historical enrollments by program
 
 We pull enrollment numbers for past batches.
 
@@ -166,7 +166,7 @@ Example data:
 |        MBA         |    [120, 130, 110]       |
 | Coding Bootcamp    | [150, 145, 155]          |
 
-###### Step 2: Compute the average enrollment per program
+#### Step 2: Compute the average enrollment per program
 
 avg_enrollment = sum of enrollments / number of batches
 
@@ -176,7 +176,7 @@ avg_enrollment = sum of enrollments / number of batches
 |        MBA         |   (120+130+110)/3 = 120        |
 | Coding Bootcamp    |   (150+145+155)/3 = 150        |
 
-###### Step 3: Normalize using Min-Max scaling to convert into a 0–1 score
+#### Step 3: Normalize using Min-Max scaling to convert into a 0–1 score
 
 popularity_index = avg_enrollment−min(avg)​ / max(avg) - min(avg)
 
@@ -192,7 +192,7 @@ Coding Bootcamp = (150 - 120) / (187.5 − 120) = 0.44
 
 MBA = (120 - 120) / (187.5 - 120) = 0
 
-###### Final Popularity Index Table 
+#### Final Popularity Index Table 
 
 |      Program       | Avg Enrollment |    Popularity Index     |
 |:------------------:|:--------------:|:------------------------:|
