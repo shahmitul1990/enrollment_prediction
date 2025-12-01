@@ -5,6 +5,7 @@ Here is a complete explanation of how I predicted total student enrollment.
 
 * [Project background](#project-background)
 * [Dataset and features](#dataset-and-features)
+  * [Data Preparation](#data-preparation)
 * [Models tried](#models-tried)
 * [Final model selection](final-model-selection)
 * [How accuracy reached 95%](how-accuracy-reached-95%)
@@ -85,6 +86,20 @@ I’m showing:
 ***Target Variable***:
 enrollments
 <br>This is what out model predicted.
+
+##Data Preparation
+
+Before modeling, I performed:
+
+Handling missing values
+
+Outlier treatment in marketing spend & fees
+
+One-hot encoding for categorical variables (program, location, mode)
+
+Feature scaling (for linear models)
+
+Train-test split (80/20)
 
 ### Feature Engineering
 
