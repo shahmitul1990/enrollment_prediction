@@ -9,7 +9,7 @@ Here is a complete explanation of how I predicted total student enrollment.
   * 🏗️ [Feature Engineering](#feature-engineering)
 * 🤖 [Models tried](#models-tried)
 * 🏆 [Final model selection](#final-model-selection)
-* 🎯 [How accuracy reached 95%](#how-accuracy-reached-95%)
+* 🎯 [How accuracy reached 95%](#how-accuracy-reached-95)
 * 📈 [Impact on the academic institution](#impact-on-the-academic-institution)
 
 
