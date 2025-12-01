@@ -262,10 +262,10 @@ To ensure we find the best-performing model, I experimented with multiple algori
 
 ***Adaptive Boosting***
 
-✔ * Best performance on validation set
-✔ * Best handling of categorical, numeric, and interaction-heavy data
-✔ * Highest accuracy
-✔ * Most reliable for forecasting new semester enrollments
+* Best performance on validation set
+* Best handling of categorical, numeric and interaction-heavy data
+* Highest accuracy
+* Most reliable for forecasting new semester enrollments
 
 ## 🎯 How accuracy reached 95%
 
