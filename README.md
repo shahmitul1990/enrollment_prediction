@@ -3,7 +3,7 @@
 Here is a complete explanation of how I predicted total student enrollment.
 <br>It includes:
 
-* 📌 [Project background](#project-background)
+* [Project background](#project-background)
 * 📊 [Dataset and features](#dataset-and-features)
   * 🧹 [Data Preparation](#data-preparation)
   * 🏗️ [Feature Engineering](#feature-engineering)
