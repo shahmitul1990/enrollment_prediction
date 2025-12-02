@@ -21,9 +21,9 @@ The institution runs academic programs both online and offline across a few camp
 
 They used to overestimate or underestimate demand, leading to:
 
-* 👨‍🏫 Hiring too many or too few faculty
-* 🏫 Overcrowded or underutilized classrooms
-* 💰 Incorrect budgeting
+👨‍🏫 Hiring too many or too few faculty <br>
+🏫 Overcrowded or underutilized classrooms <br>
+💰 Incorrect budgeting
 
 So the management wanted a predictive enrollment model with high accuracy.
 
