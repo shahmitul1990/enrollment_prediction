@@ -92,11 +92,11 @@ enrollments
 
 Before modeling, I performed:
 
-* 🔧 Handling missing values
-* 📉 Outlier treatment in marketing spend & fees
-* 🔤 One-hot encoding for categorical variables (program, location, mode)
-* 📏 Feature scaling (for linear models)
-* ✂️ Train-test split (80/20)
+🔧 Handling missing values <br>
+📉 Outlier treatment in marketing spend & fees <br>
+🔤 One-hot encoding for categorical variables (program, location, mode) <br>
+📏 Feature scaling (for linear models) <br>
+✂️ Train-test split (80/20) <br>
 
 ### Feature Engineering
 
